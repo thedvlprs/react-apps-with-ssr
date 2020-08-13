@@ -12,15 +12,57 @@ export default class extends React.Component {
         }
     }
 
+    constructor(props) {
+        super(props);
+        this.state = { data: props.data, error: props.error };
+    }
+
+    GetUser = async () => {
+        try {
+            const res = await axios.get(
+                'https://api.github.com/users/' +
+                    document.getElementById('inputTextbox').value
+            );
+            this.setState({
+                data: [res.data],
+                error: null,
+            });
+        } catch (e) {
+            this.setState({
+                data: null,
+                error: e,
+            });
+        }
+    };
+
     render() {
-        if (this.props.error) {
-            return <div>Error: {this.props.error.message}</div>;
-        } else {
+        if (this.state.error) {
             return (
                 <div>
                     <h1>Github Users</h1>
                     <br />
-                    {this.props.data.map((item, index) => (
+                    <div className='center'>
+                        <input id='inputTextbox' type='text'></input>
+                        <button type='button' onClick={this.GetUser}>
+                            Get User
+                        </button>
+                    </div>
+                    <br />
+                    <p className='error'>Error: {this.state.error.message}</p>
+                </div>
+            );
+        } else {
+            return (
+                <div>
+                    <h1>Github Users</h1> <br />
+                    <div className='center'>
+                        <input id='inputTextbox' type='text'></input>
+                        <button type='button' onClick={this.GetUser}>
+                            Get User
+                        </button>
+                    </div>
+                    <br />
+                    {this.state.data.map((item, index) => (
                         <div key={index} className='UserBlock'>
                             <img src={item.avatar_url} alt='User Icon'></img>
                             <div className='UserDetails'>
