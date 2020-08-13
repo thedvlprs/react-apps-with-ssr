@@ -1,13 +1,12 @@
 import React from 'react';
-import Link from 'next/link';
+import GetLink from '../SharedComponents/DynamicRouter';
 
 function MyComponent() {
     return (
         <div>
-            <p>Hello from Next.js!</p>
-            <Link href={{ pathname: '/about' }}>
-                <a>About Page</a>
-            </Link>
+            <GetLink title='Page 1' Disp='page-1'></GetLink>
+            <GetLink title='Page 2' Disp='page-2'></GetLink>
+            <GetLink title='Page 3' Disp='page-3'></GetLink>
         </div>
     );
 }
