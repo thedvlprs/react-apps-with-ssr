@@ -1,7 +1,7 @@
 {
     "name": "my-next-app",
     "version": "1.0.0",
-    "description": "My Next.js Application",
+    "description": "My Next.js App",
     "main": "index.js",
     "scripts": {
         "start": "next"
