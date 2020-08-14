@@ -3,4 +3,5 @@ intro-to-js/node_modules
 my-app/node_modules
 my-next-app/node_modules
 simple-react-app/node_modules
+jest-jest-testing-app/node_modules
 .vscode/
