@@ -4,4 +4,5 @@ my-app/node_modules
 my-next-app/node_modules
 simple-react-app/node_modules
 jest-jest-testing-app/node_modules
+react-jest-app/node_modules
 .vscode/
