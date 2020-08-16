@@ -53,3 +53,11 @@ test('Matcher for Iterables', () => {
     expect(countries).toContain('United States');
     expect(new Set(countries)).toContain('Russia');
 });
+
+test('Exception Matcher', () => {
+    expect(functions.invalidOperation).toThrow(Error);
+
+    expect(functions.invalidOperation).toThrow('Operation not allowed!');
+
+    expect(functions.invalidOperation).toThrow(/not allowed/);
+});
