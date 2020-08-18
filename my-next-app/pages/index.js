@@ -12,10 +12,18 @@ export default class extends React.Component {
         }
     }
 
+    static getAPIURL() {
+        if (process.env.NODE_ENV === 'production') {
+            return process.env.URL_TestAPI_Prod;
+        } else {
+            return process.env.URL_TestAPI_Dev;
+        }
+    }
+
     render() {
         return (
             <div>
-                <h1>Hello, world!</h1>
+                <h1>Hello from {process.env.NODE_ENV} server</h1>
                 <table>
                     {Object.keys(this.props.data).map((key, index) => (
                         <tr key={index}>
