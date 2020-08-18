@@ -5,19 +5,13 @@ import '../style.css';
 export default class extends React.Component {
     static async getInitialProps() {
         try {
-            const res = await axios.get('http://localhost:3000/api/testapi', {
-                data: {
-                    query: `{
-                                                    name,
-                                                    address
-                                                }`,
-                },
-            });
+            const res = await axios.get('http://localhost:3000/api/TestAPI');
             return { data: res.data, error: null };
         } catch (e) {
             return { data: '', error: e };
         }
     }
+
     render() {
         return (
             <div>

@@ -1,4 +1,4 @@
-import { graphql, buildSchema } from 'graphql';
+/* import { graphql, buildSchema } from 'graphql';
 
 const schema = buildSchema(`
   type Query {
@@ -9,10 +9,10 @@ const schema = buildSchema(`
     favouriteSnack: String,
     vehicle: String
   }
-`);
+`); */
 
 const data = {
-    name: 'Jhon Doe',
+    name: 'John Doe',
     address: '7th Avenue, Brooklyn',
     contact: '099251456',
     bloodgroup: 'A +ve',
@@ -20,7 +20,13 @@ const data = {
     vehicle: 'Hyundai Tucson',
 };
 
-export default async (req, res) => {
+export default (req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'application/json');
+    res.end(JSON.stringify(data));
+};
+
+/* export default async (req, res) => {
     const response = await graphql(schema, req.body.query, data);
     res.end(JSON.stringify(response.data));
-};
+}; */
